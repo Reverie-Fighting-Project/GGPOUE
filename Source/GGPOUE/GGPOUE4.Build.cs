@@ -21,7 +21,7 @@ public class GGPOUE4 : ModuleRules
 			);
 
 
-		PublicDependencyModuleNames.AddRange(new string[] { "Core" });
+		PublicDependencyModuleNames.AddRange(new string[] { "Core", "DeveloperSettings" });
 
 		PrivateDependencyModuleNames.AddRange(new string[] { "CoreUObject", "Engine", "InputCore" });
 

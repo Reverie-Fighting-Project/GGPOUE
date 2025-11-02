@@ -8,6 +8,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include <functional>
 #include <stdarg.h>
 #include "../../Private/log.h"
 #include "ggponet.generated.h"
