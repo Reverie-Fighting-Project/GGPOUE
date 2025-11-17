@@ -33,7 +33,7 @@ void Logv(EGGPOLogVerbosity Verbosity, const char *fmt, va_list args)
    {
        // Get the settings object
        // Return if logging is not enabled
-      UGGPOUE4_Settings* Settings = GetMutableDefault<UGGPOUE4_Settings>();
+      UGGPOUE_Settings* Settings = GetMutableDefault<UGGPOUE_Settings>();
       if (!Settings->LoggingEnabled)
          return;
 
@@ -45,11 +45,13 @@ void Logv(EGGPOLogVerbosity Verbosity, const char *fmt, va_list args)
       vsprintf_s(logbuf, ARRAY_SIZE(logbuf), fmt, args);
       FString Message = FString(strlen(logbuf), logbuf);
 
-      Message.InsertAt(0, FString::Printf(TEXT("GGPO :: "), GPlayInEditorID));
-      // If this is an instance playing in the editor, include its Id
-      if (GPlayInEditorID >= 0)
+      int32 PlayInEditorID = UE::GetPlayInEditorID();
+
+      Message.InsertAt(0, FString::Printf(TEXT("GGPO :: %d"), PlayInEditorID));
+      // If this is an instance playing in the editor, include its ID
+      if (PlayInEditorID >= 0)
       {
-          Message.InsertAt(0, FString::Printf(TEXT("PIE %d-"), GPlayInEditorID));
+          Message.InsertAt(0, FString::Printf(TEXT("PIE %d-"), PlayInEditorID));
       }
 
       UE_LOG(LogNet, Display, TEXT("%s"), *Message);

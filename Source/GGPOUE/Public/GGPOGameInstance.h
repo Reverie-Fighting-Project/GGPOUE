@@ -13,13 +13,13 @@ class UGGPONetwork;
  * 
  */
 UCLASS()
-class GGPOUE4_API UGGPOGameInstance : public UGameInstance
+class GGPOUE_API UGGPOGameInstance : public UGameInstance
 {
 	GENERATED_BODY()
 
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		UGGPONetwork* NetworkAddresses;
+		TObjectPtr<UGGPONetwork> NetworkAddresses;
 
     /// <summary>
     /// Creates a collection of network addresses.

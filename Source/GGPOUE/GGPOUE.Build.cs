@@ -2,9 +2,9 @@
 
 using UnrealBuildTool;
 
-public class GGPOUE4 : ModuleRules
+public class GGPOUE : ModuleRules
 {
-	public GGPOUE4(ReadOnlyTargetRules Target) : base(Target)
+	public GGPOUE(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
@@ -26,7 +26,7 @@ public class GGPOUE4 : ModuleRules
 		PrivateDependencyModuleNames.AddRange(new string[] { "CoreUObject", "Engine", "InputCore" });
 
 
-		if (Target.Platform == UnrealTargetPlatform.Win64 || Target.Platform == UnrealTargetPlatform.Win32)
+		if (Target.Platform == UnrealTargetPlatform.Win64)
 		{
 			PublicDefinitions.Add("_WINDOWS");
 		}
@@ -34,7 +34,7 @@ public class GGPOUE4 : ModuleRules
         {
 			PublicDefinitions.Add("MACOS");
 		}
-		else if (Target.Platform == UnrealTargetPlatform.Linux || Target.Platform == UnrealTargetPlatform.LinuxAArch64)
+		else if (Target.Platform == UnrealTargetPlatform.Linux)
         {
 			PublicDefinitions.Add("__GNUC__");
 		}
